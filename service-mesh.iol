@@ -1,4 +1,4 @@
 interface ServiceMeshInterface {
-    RequestResponse: health()( string )
+    RequestResponse: health(void)( string )
 }
 ​
