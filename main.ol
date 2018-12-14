@@ -1,4 +1,4 @@
-include "srv-logger.iol"
+include "srv-interface.iol"
 include "service-mesh.iol"
 include "time.iol"
 include "console.iol"
