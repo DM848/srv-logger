@@ -19,7 +19,7 @@ execution { single }
 inputPort {{ service.name.Capitalize() }}Input {
   Location: "socket://localhost:3000/"
   Protocol: http
-  Interfaces: {{ service.name.Capitalize() }}Interface
+  Interfaces: {{ service.name.Capitalize() }}Interface, ServiceMeshInterface
 }
 
 // The init{} scope allows the specification of initialisation procedures (before the web server
