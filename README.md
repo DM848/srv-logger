@@ -1,2 +1,2 @@
-# template-srv-jolie
-template for new jolie based services
+# srv-{{ service.name }}
+{{ service.desc }}
