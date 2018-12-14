@@ -1,4 +1,4 @@
 interface {{ service.name.Capitalize() }}Interface {
   RequestResponse:
-    about()(string)
+    about(void)(string)
 }
