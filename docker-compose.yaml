@@ -4,4 +4,4 @@ services:
 
   srv-logger:
     build: .
-    image: dm848/srv-logger:v1
+    image: dm848/srv-logger:v1.0.1

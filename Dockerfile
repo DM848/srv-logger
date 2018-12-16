@@ -8,5 +8,5 @@ RUN mv service.json5 /etc/containerpilot.json5
 ENV CONTAINERPILOT=/etc/containerpilot.json5
 
 # expose http port
-EXPOSE 8888:3000
+EXPOSE 8888:8888
 CMD ["/bin/containerpilot"]
