@@ -22,5 +22,5 @@ interface LoggerInterface {
 outputPort Logger {
     Location: "socket://logger:8888/"
     Interfaces: LoggerInterface
-    Protocol: http { .method = "get" }
+    Protocol: http
 }
