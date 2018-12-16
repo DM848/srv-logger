@@ -25,7 +25,7 @@ inputPort LoggerInput {
     ServiceMeshInterface
 }
 
-const {
+constants {
     dbHost = "LOGGER_DB_HOST",
     dbName = "LOGGER_DB_NAME",
     dbUser = "LOGGER_DB_USER",

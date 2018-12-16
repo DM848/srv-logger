@@ -14,7 +14,7 @@ type Query:void {
 
 interface LoggerInterface {
   RequestResponse:
-    about(void)(string)
+    about(void)(string),
     get(Query)(undefined), // list
     set(LogEntry)(int) // returns entry id, otherwise -1
 }
