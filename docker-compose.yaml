@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+
+  srv-logger:
+    build: .
+    image: dm848/srv-logger:v1
