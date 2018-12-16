@@ -2,33 +2,33 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ service.name }}
+  name: logger
   namespace: default
 spec:
-  replicas: {{ service.replicas }}
+  replicas: 2
   template:
     metadata:
       labels:
-        app: {{ service.name }}
+        app: logger
     spec:
       containers:
-        - image: "dm848/srv-{{ service.name }}:v1"
+        - image: "dm848/srv-logger:v1"
           imagePullPolicy: Always
-          name: {{ service.name }}
+          name: logger
           ports:
-            - containerPort: {{ service.port }}
+            - containerPort: 8888
 ---
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: {{ service.name }}
+  name: logger
   namespace: "default"
   labels:
-    app: {{ service.name }}
+    app: logger
 spec:
   ports:
     - protocol: "TCP"
-      port: {{ service.port }}
-      targetPort: {{ service.port }}
+      port: 8888
+      targetPort: 8888
   selector:
-    app: {{ service.name }}
+    app: logger

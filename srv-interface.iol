@@ -1,4 +1,4 @@
-interface {{ service.name.Capitalize() }}Interface {
+interface LoggerInterface {
   RequestResponse:
     about(void)(string)
 }

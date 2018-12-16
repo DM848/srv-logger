@@ -16,11 +16,11 @@ execution { sequential }
 
 // The input port specifies how your service can be reached. However, since we use
 // Docker containers, the port here should not be set as it is exposed in the Dockerfile.
-inputPort {{ service.name.Capitalize() }}Input {
+inputPort LoggerInput {
   Location: "socket://localhost:3000/"
   Protocol: http
   Interfaces: 
-    {{ service.name.Capitalize() }}Interface, 
+    LoggerInterface, 
     ServiceMeshInterface
 }
 
@@ -29,7 +29,7 @@ inputPort {{ service.name.Capitalize() }}Input {
 // the service is started.
 init
 {
-    println@Console( "initialising {{ service.name }}")()
+    println@Console( "initialising logger")()
 }
 
 // incomming requests
@@ -40,13 +40,13 @@ main
     }]
     [ about()( resp ) {
         resp = "
-            The service {{ service.name }} was created at {{ service.createdAt }} by {{ service.creator }}.
-            The source code can be found at https://github.com/dm848/srv-{{ service.name }}
-            While other services in the cluster (in the same namespace) can access it using the DNS name {{ service.name }}.
-            Remember to specify the cluster namespace, if you are in a different namespace: {{ service.name }}.default
+            The service logger was created at 2018-12-16 17:13:49.238752618 +0000 UTC m=+24.385533559 by Anders Fylling.
+            The source code can be found at https://github.com/dm848/srv-logger
+            While other services in the cluster (in the same namespace) can access it using the DNS name logger.
+            Remember to specify the cluster namespace, if you are in a different namespace: logger.default
 
             Service Description
-            {{ service.desc }}
+            The service for logging all actions within the system. It supplies a basic getter/setter interface which stores and retrieves content from a database
         "
     }]
 }
