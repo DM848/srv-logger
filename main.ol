@@ -77,6 +77,8 @@ init
             ")";
         update@Database( updateRequest )( ret )
     }
+
+    println@Console( "initialised")();
 }
 
 // incomming requests
@@ -99,7 +101,6 @@ main
     }]
 
     [ set( req )( res ) {
-        println@Console("new entry")();
         insertReq = "INSERT INTO log(service, info, level) VALUES(:srv, :info, :lvl) RETURNING id";
         insertReq.srv = req.service;
         insertReq.info = req.info;
