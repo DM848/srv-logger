@@ -49,15 +49,17 @@ init
     get@Consul(entry)(loggerDBUsername);
     entry.key = dbPwd;
     get@Consul(entry)(loggerDBPassword);
+    entry.key = dbPort;
+    get@Consul(entry)(loggerDBPort);
 
     // configure & connect
     with ( connectionInfo ) {
-        .host = loggerDBHost;
         .driver = "postgresql";
-        .port = 5432;
-        .database = loggerDBName; // "postgres"
-        .username = loggerDBUsername;
-        .password = loggerDBPassword
+        .host = loggerDBHost.val;
+        .port = int(loggerDBPort.val);
+        .database = loggerDBName.val;
+        .username = loggerDBUsername.val;
+        .password = loggerDBPassword.val
     };
     connect@Database( connectionInfo )(void);
 
@@ -97,6 +99,7 @@ main
     }]
 
     [ set( req )( res ) {
+        println@Console("new entry")();
         insertReq = "INSERT INTO log(service, info, level) VALUES(:srv, :info, :lvl) RETURNING id";
         insertReq.srv = req.service;
         insertReq.info = req.info;

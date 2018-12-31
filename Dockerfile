@@ -1,4 +1,4 @@
-FROM dm848/cs-jolie:v1
+FROM dm848/cs-jolie-postgresql:v1.3.0
 
 WORKDIR /service
 COPY . /service
