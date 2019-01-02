@@ -76,9 +76,9 @@ init
             "  PRIMARY KEY(id)" +
             ")";
         update@Database( updateRequest )( ret )
-    }
+    };
 
-    println@Console( "initialised")();
+    println@Console("initialised")()
 }
 
 // incomming requests
